@@ -1,11 +1,13 @@
+// Library imports
 import React, { ReactElement } from 'react';
 
-const App = (): ReactElement => {
+// File imports
+import { Router } from 'router';
+
+export const App = (): ReactElement => {
 	return (
 		<div className='App'>
-			<h1>Hello World</h1>
+			<Router />
 		</div>
 	);
 };
-
-export default App;
