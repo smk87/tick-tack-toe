@@ -1,15 +1,19 @@
 // Library imports
 import { Box, Button } from '@material-ui/core';
-import React, { MouseEvent, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
+import { useDispatch } from 'react-redux';
+import { dispatchers, Menu } from 'store/game';
 
 // File imports
 import { useStyles } from './MainMenu.types';
 
 export const MainMenu = (): ReactElement => {
+	const dispatch = useDispatch();
+
 	const { mainMenu, startGame } = useStyles();
 
-	const handleStartGame = (event: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>): void => {
-		//
+	const handleStartGame = (): void => {
+		dispatch(dispatchers.changeMenu({ menu: Menu.PLAYER_NAME_MENU }));
 	};
 
 	return (

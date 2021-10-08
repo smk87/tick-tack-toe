@@ -5,7 +5,7 @@ import { GameState, Menu } from './game.types';
 
 const initialState: GameState = {
 	menuState: {
-		currentMenu: Menu.START_MENU,
+		currentMenu: Menu.MAIN_MENU,
 	},
 };
 
@@ -17,7 +17,7 @@ export const gameReducer = (state: GameState = initialState, action: ActionRetur
 				...state,
 				menuState: {
 					...state.menuState,
-					currentMenu: action.payload,
+					currentMenu: action.payload?.menu,
 				},
 			};
 

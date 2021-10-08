@@ -1,5 +1,6 @@
 export enum Menu {
-	START_MENU = 'startMenu',
+	MAIN_MENU = 'startMenu',
+	PLAYER_NAME_MENU = 'playerNameMenu',
 }
 
 export type GameState = {

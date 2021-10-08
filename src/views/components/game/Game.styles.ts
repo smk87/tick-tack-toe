@@ -7,6 +7,7 @@ export const useStyles = makeStyles((theme) =>
 			width: '60%',
 			height: '40rem',
 			borderRadius: '4px',
+			padding: '1rem',
 		},
 	})
 );

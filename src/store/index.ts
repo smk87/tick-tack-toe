@@ -21,7 +21,8 @@ const persistConfig = {
 	],
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const persistedReducer = persistReducer(persistConfig, rootReducer as any);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -31,3 +32,5 @@ export const store = createStore(persistedReducer, composeEnhancers(applyMiddlew
 export const persistor = persistStore(store);
 
 window.addEventListener('storage', crossBrowserListener(store, persistConfig));
+
+export * from './store.types';
