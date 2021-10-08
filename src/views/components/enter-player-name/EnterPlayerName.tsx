@@ -2,19 +2,19 @@
 import { Box, Button, FormControl, Grid, Input, InputAdornment, InputLabel, Typography } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import { useDispatch } from 'react-redux';
 
 // File imports
 import { useStyles } from './EnterPlayerName.styles';
-import { dispatchers, Menu } from 'store/game';
+import { Menu } from 'store/game';
+import { useChangeMenu } from 'hooks';
 
 export const EnterPlayerName = (): ReactElement => {
-	const dispatch = useDispatch();
+	const changeMenu = useChangeMenu();
 
 	const { playerNameForm, startMatch, buttonWrapper, exit } = useStyles();
 
 	const handleExitToMainMenu = (): void => {
-		dispatch(dispatchers.changeMenu({ menu: Menu.MAIN_MENU }));
+		changeMenu(Menu.MAIN_MENU);
 	};
 
 	return (

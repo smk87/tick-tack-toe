@@ -1,19 +1,19 @@
 // Library imports
 import { Box, Button } from '@material-ui/core';
 import React, { ReactElement } from 'react';
-import { useDispatch } from 'react-redux';
-import { dispatchers, Menu } from 'store/game';
 
 // File imports
 import { useStyles } from './MainMenu.types';
+import { Menu } from 'store/game';
+import { useChangeMenu } from 'hooks';
 
 export const MainMenu = (): ReactElement => {
-	const dispatch = useDispatch();
+	const changeMenu = useChangeMenu();
 
 	const { mainMenu, startGame } = useStyles();
 
 	const handleStartGame = (): void => {
-		dispatch(dispatchers.changeMenu({ menu: Menu.PLAYER_NAME_MENU }));
+		changeMenu(Menu.PLAYER_NAME_MENU);
 	};
 
 	return (
