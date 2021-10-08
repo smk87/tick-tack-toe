@@ -1,2 +1,2 @@
 export * from './dispatchers';
-export * from './game.types';
+export * from './menu.types';

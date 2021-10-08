@@ -2,7 +2,7 @@
 import { useDispatch } from 'react-redux';
 
 // File imports
-import { dispatchers, Menu } from 'store/game';
+import { dispatchers, Menu } from 'store/menu';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const useChangeMenu = () => {

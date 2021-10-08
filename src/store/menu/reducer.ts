@@ -1,7 +1,7 @@
 // File import
 import { ActionReturnType } from 'store/store.types';
 import { menu } from './actionTypes';
-import { GameState, Menu } from './game.types';
+import { GameState, Menu } from './menu.types';
 
 const initialState: GameState = {
 	menuState: {
@@ -9,9 +9,8 @@ const initialState: GameState = {
 	},
 };
 
-export const gameReducer = (state: GameState = initialState, action: ActionReturnType): GameState => {
+export const menuReducer = (state: GameState = initialState, action: ActionReturnType): GameState => {
 	switch (action.type) {
-		// Request start
 		case menu.CHANGE:
 			return {
 				...state,

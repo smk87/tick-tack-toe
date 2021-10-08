@@ -4,13 +4,13 @@ import React, { ReactElement } from 'react';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
 // File imports
-import { useStyles } from './EnterPlayerName.styles';
+import { useStyles } from './PlayeMenu.styles';
 import { Menu } from 'store/menu';
 import { useChangeMenu, useFormFields } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { dispatchers } from 'store/player';
 
-export const EnterPlayerName = (): ReactElement => {
+export const PlayerMenu = (): ReactElement => {
 	const dispatch = useDispatch();
 
 	const [fields, handleFieldChange] = useFormFields({ player1Name: '', player2Name: '' });
@@ -24,7 +24,6 @@ export const EnterPlayerName = (): ReactElement => {
 				player2: fields.player2Name,
 			})
 		);
-		changeMenu(Menu.PLAY_MENU);
 	};
 
 	const handleExitToMainMenu = (): void => {
@@ -33,50 +32,14 @@ export const EnterPlayerName = (): ReactElement => {
 
 	return (
 		<Box display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
-			<Typography variant='h5'>Enter Player Names</Typography>
 			<Grid justifyContent='center' container spacing={3} className={playerNameForm}>
 				<Grid item>
-					<FormControl>
-						<InputLabel htmlFor='player1'>Player 1 Name</InputLabel>
-						<Input
-							id='player1'
-							name='player1Name'
-							startAdornment={
-								<InputAdornment position='start'>
-									<AccountCircle />
-								</InputAdornment>
-							}
-							onChange={handleFieldChange}
-						/>
-					</FormControl>
-				</Grid>
-
-				<Grid item>
-					<FormControl>
-						<InputLabel htmlFor='player2'>Player 2 Name</InputLabel>
-						<Input
-							id='player2'
-							name='player2Name'
-							value={fields.player2Name}
-							startAdornment={
-								<InputAdornment position='start'>
-									<AccountCircle />
-								</InputAdornment>
-							}
-							onChange={handleFieldChange}
-						/>
-					</FormControl>
+					<h1>Board Here</h1>
 				</Grid>
 			</Grid>
 			<Grid container className={buttonWrapper} justifyContent='center'>
 				<Grid item>
-					<Button
-						disabled={!fields.player1Name || !fields.player2Name}
-						onClick={handleStartMatch}
-						className={startMatch}
-						variant='contained'
-						color='primary'
-					>
+					<Button onClick={handleStartMatch} className={startMatch} variant='contained' color='primary'>
 						Start Match
 					</Button>
 				</Grid>

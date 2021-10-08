@@ -1,5 +1,6 @@
 // File imports
-import { GameState } from './game/game.types';
+import { GameState } from './menu/menu.types';
+import { PlayerState } from './player';
 import { rootReducer } from './reducerCombine';
 
 export type RootState = ReturnType<typeof rootReducer>;
@@ -15,5 +16,6 @@ export type ActionReturnType<T = any> = {
 };
 
 export type CombinedStateType = {
-	game: GameState;
+	menu: GameState;
+	player: PlayerState;
 };

@@ -2,7 +2,8 @@
 import { CombinedState, combineReducers, Reducer } from 'redux';
 
 // File imports
-import { gameReducer } from './game/reducer';
+import { menuReducer } from './menu/reducer';
+import { playerReducer } from './player/reducer';
 import { CombinedStateType } from './store.types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -10,5 +11,6 @@ export const rootReducer: Reducer<CombinedState<CombinedStateType>> = combineRed
 	/**
 	 * Reducers here
 	 */
-	game: gameReducer,
+	menu: menuReducer,
+	player: playerReducer,
 });

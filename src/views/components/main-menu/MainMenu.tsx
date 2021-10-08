@@ -4,12 +4,11 @@ import React, { ReactElement } from 'react';
 
 // File imports
 import { useStyles } from './MainMenu.types';
-import { Menu } from 'store/game';
+import { Menu } from 'store/menu';
 import { useChangeMenu } from 'hooks';
 
 export const MainMenu = (): ReactElement => {
 	const changeMenu = useChangeMenu();
-
 	const { mainMenu, startGame } = useStyles();
 
 	const handleStartGame = (): void => {

@@ -2,7 +2,7 @@
 
 import { menu } from './actionTypes';
 import { ActionReturnType } from 'store/store.types';
-import { ChangeMenuPayload } from './game.types';
+import { ChangeMenuPayload } from './menu.types';
 
 export const menuActions = {
 	CHANGE: (payload: ChangeMenuPayload): ActionReturnType<ChangeMenuPayload> => ({

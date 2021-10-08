@@ -4,7 +4,7 @@ import { Dispatch } from 'redux';
 
 // File imports
 import { menuActions } from './actions';
-import { ChangeMenuPayload } from './game.types';
+import { ChangeMenuPayload } from './menu.types';
 
 export const dispatchers = {
 	changeMenu:

@@ -7,20 +7,24 @@ import { useSelector } from 'react-redux';
 import { EnterPlayerName, MainMenu } from '..';
 import { useStyles } from './Game.styles';
 import { RootState } from 'store';
-import { Menu } from 'store/game';
+import { Menu } from 'store/menu';
+import { PlayerMenu } from '../play-menu';
 
 export const Game = (): ReactElement => {
-	const gameState = useSelector((state: RootState) => state.game);
+	const menuState = useSelector((state: RootState) => state.menu.menuState);
 
 	const { game } = useStyles();
 
 	const renderMenu = (): ReactElement => {
-		switch (gameState.menuState.currentMenu) {
+		switch (menuState.currentMenu) {
 			case Menu.MAIN_MENU:
 				return <MainMenu />;
 
 			case Menu.PLAYER_NAME_MENU:
 				return <EnterPlayerName />;
+
+			case Menu.PLAY_MENU:
+				return <PlayerMenu />;
 
 			default:
 				return <MainMenu />;
