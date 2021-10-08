@@ -1,6 +1,6 @@
 import { Box, Typography } from '@material-ui/core';
 import React, { ReactElement } from 'react';
-import { MainMenu } from '..';
+import { EnterPlayerName, MainMenu } from '..';
 import { useStyles } from './Game.styles';
 
 export const Game = (): ReactElement => {
@@ -11,6 +11,7 @@ export const Game = (): ReactElement => {
 			<Typography align='center' variant='h3'>
 				Tick Tack Toe
 			</Typography>
+			<EnterPlayerName />
 			<MainMenu />
 		</Box>
 	);
