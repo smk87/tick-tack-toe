@@ -2,10 +2,10 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
-		playerNameForm: {
+		playMenu: {
 			margin: '2rem',
 		},
-		startMatch: {
+		pass: {
 			width: '12rem',
 			height: '3rem',
 			marginRight: '2rem',
@@ -18,6 +18,9 @@ export const useStyles = makeStyles((theme: Theme) =>
 		buttonWrapper: {
 			marginTop: '4rem',
 			width: '100%',
+		},
+		turnText: {
+			marginBottom: '2rem',
 		},
 	})
 );

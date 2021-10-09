@@ -8,7 +8,7 @@ import { EnterPlayerName, MainMenu } from '..';
 import { useStyles } from './Game.styles';
 import { RootState } from 'store';
 import { Menu } from 'store/menu';
-import { PlayerMenu } from '../play-menu';
+import { PlayMenu } from '../play-menu';
 
 export const Game = (): ReactElement => {
 	const menuState = useSelector((state: RootState) => state.menu.menuState);
@@ -24,7 +24,7 @@ export const Game = (): ReactElement => {
 				return <EnterPlayerName />;
 
 			case Menu.PLAY_MENU:
-				return <PlayerMenu />;
+				return <PlayMenu />;
 
 			default:
 				return <MainMenu />;

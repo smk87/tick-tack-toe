@@ -2,12 +2,12 @@
 import { Box, Button, FormControl, Grid, Input, InputAdornment, InputLabel, Typography } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import { useDispatch } from 'react-redux';
 
 // File imports
 import { useStyles } from './EnterPlayerName.styles';
 import { Menu } from 'store/menu';
 import { useChangeMenu, useFormFields } from 'hooks';
-import { useDispatch } from 'react-redux';
 import { dispatchers } from 'store/player';
 
 export const EnterPlayerName = (): ReactElement => {

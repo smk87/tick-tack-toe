@@ -1,1 +1,1 @@
-export * from './PlayerMenu';
+export * from './PlayMenu';
