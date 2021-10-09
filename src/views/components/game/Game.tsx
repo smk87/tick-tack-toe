@@ -11,12 +11,12 @@ import { Menu } from 'store/menu';
 import { PlayMenu } from '../play-menu';
 
 export const Game = (): ReactElement => {
-	const menuState = useSelector((state: RootState) => state.menu.menuState);
+	const menuState = useSelector((state: RootState) => state.menu?.menuState);
 
 	const { game } = useStyles();
 
 	const renderMenu = (): ReactElement => {
-		switch (menuState.currentMenu) {
+		switch (menuState?.currentMenu) {
 			case Menu.MAIN_MENU:
 				return <MainMenu />;
 

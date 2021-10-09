@@ -10,6 +10,7 @@ export type GameState = {
 	menuState: {
 		currentMenu: Menu;
 		currentTurn: Player;
+		nextTurn: Player;
 	};
 };
 
@@ -18,5 +19,10 @@ export type ChangeMenuPayload = {
 };
 
 export type ChangeTurnPayload = {
+	turn: Player;
+	nextTurn: Player;
+};
+
+export type ChangeNextTurnPayload = {
 	nextTurn: Player;
 };

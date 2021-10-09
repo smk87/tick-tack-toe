@@ -7,10 +7,15 @@ export type PlayerState = {
 	playerState: {
 		[player in Player]: {
 			name: string;
+			moves: number[];
 		};
 	};
 };
 
 export type UpdateNamePayload = {
 	[player in Player]: string;
+};
+
+export type UpdateMovePayload = {
+	[player in Player]?: number;
 };

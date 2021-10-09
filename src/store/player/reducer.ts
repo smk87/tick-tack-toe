@@ -7,9 +7,11 @@ const initialState: PlayerState = {
 	playerState: {
 		player1: {
 			name: '',
+			moves: [],
 		},
 		player2: {
 			name: '',
+			moves: [],
 		},
 	},
 };
@@ -26,6 +28,27 @@ export const playerReducer = (state: PlayerState = initialState, action: ActionR
 				},
 			};
 
+		case player.UPDATE_MOVE: {
+			const updatedPlayer1Moves = [...state.playerState.player1.moves];
+			const updatedPlayer2Moves = [...state.playerState.player2.moves];
+
+			if (action.payload?.player1 !== undefined) {
+				updatedPlayer1Moves.push(action.payload?.player1);
+			}
+
+			if (action.payload?.player2 !== undefined) {
+				updatedPlayer2Moves.push(action.payload?.player2);
+			}
+
+			return {
+				...state,
+				playerState: {
+					...state.playerState,
+					player1: { ...state.playerState.player1, moves: updatedPlayer1Moves },
+					player2: { ...state.playerState.player2, moves: updatedPlayer2Moves },
+				},
+			};
+		}
 		// Default state
 		default:
 			return state;

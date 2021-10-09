@@ -1,7 +1,7 @@
 // Library import
 import { applyMiddleware, compose, createStore } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
-import autoMergeLevel1 from 'redux-persist/es/stateReconciler/autoMergeLevel1';
+import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 
@@ -12,7 +12,7 @@ import { rootReducer } from './reducerCombine';
 const persistConfig = {
 	key: 'tick-tack-toe', // Store by this name
 	storage, // Use localStorage
-	stateReconciler: autoMergeLevel1, // Reconcile level
+	stateReconciler: hardSet, // Reconcile level
 	whilelist: [
 		/**
 		 * - Persist only those reducers

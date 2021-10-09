@@ -14,8 +14,8 @@ import { RootState } from 'store';
 
 export const PlayMenu = (): ReactElement => {
 	const dispatch = useDispatch();
-	const menuState = useSelector((state: RootState) => state.menu.menuState);
-	const playerState = useSelector((state: RootState) => state.player.playerState);
+	const menuState = useSelector((state: RootState) => state.menu?.menuState);
+	const playerState = useSelector((state: RootState) => state.player?.playerState);
 
 	const changeMenu = useChangeMenu();
 	const { playMenu, pass, buttonWrapper, exit, turnText } = useStyles();
@@ -23,13 +23,18 @@ export const PlayMenu = (): ReactElement => {
 	const handlePass = (): void => {
 		dispatch(
 			dispatchers.changeTurn({
-				nextTurn: menuState.currentTurn === Player.PLAYER_1 ? Player.PLAYER_2 : Player.PLAYER_1,
+				turn: menuState.currentTurn === Player.PLAYER_1 ? Player.PLAYER_2 : Player.PLAYER_1,
+				nextTurn: menuState.currentTurn,
 			})
 		);
 	};
 
 	const handleExitToMainMenu = (): void => {
 		changeMenu(Menu.MAIN_MENU);
+	};
+
+	const isNextTurn = (): boolean => {
+		return menuState.currentTurn === menuState.nextTurn;
 	};
 
 	return (
@@ -49,7 +54,13 @@ export const PlayMenu = (): ReactElement => {
 			</Grid>
 			<Grid container className={buttonWrapper} justifyContent='center'>
 				<Grid item>
-					<Button onClick={handlePass} className={pass} variant='contained' color='primary'>
+					<Button
+						onClick={handlePass}
+						disabled={!isNextTurn()}
+						className={pass}
+						variant='contained'
+						color='primary'
+					>
 						Pass
 					</Button>
 				</Grid>

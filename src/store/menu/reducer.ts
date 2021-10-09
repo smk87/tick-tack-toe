@@ -8,6 +8,7 @@ const initialState: GameState = {
 	menuState: {
 		currentMenu: Menu.MAIN_MENU,
 		currentTurn: Player.PLAYER_1,
+		nextTurn: Player.PLAYER_2,
 	},
 };
 
@@ -27,7 +28,17 @@ export const menuReducer = (state: GameState = initialState, action: ActionRetur
 				...state,
 				menuState: {
 					...state.menuState,
-					currentTurn: action.payload?.nextTurn,
+					currentTurn: action.payload?.turn,
+					nextTurn: action.payload?.nextTurn,
+				},
+			};
+
+		case menu.CHANGE_NEXT_TURN:
+			return {
+				...state,
+				menuState: {
+					...state.menuState,
+					nextTurn: action.payload?.nextTurn,
 				},
 			};
 

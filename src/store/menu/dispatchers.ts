@@ -5,7 +5,7 @@ import { ChangeTurnPayload } from '.';
 
 // File imports
 import { menuActions } from './actions';
-import { ChangeMenuPayload } from './menu.types';
+import { ChangeMenuPayload, ChangeNextTurnPayload } from './menu.types';
 
 export const dispatchers = {
 	changeMenu:
@@ -17,5 +17,10 @@ export const dispatchers = {
 		(payload: ChangeTurnPayload) =>
 		(dispatch: Dispatch): void => {
 			dispatch(menuActions.CHANGE_TURN(payload));
+		},
+	changeNextTurn:
+		(payload: ChangeNextTurnPayload) =>
+		(dispatch: Dispatch): void => {
+			dispatch(menuActions.CHANGE_NEXT_TURN(payload));
 		},
 };
