@@ -1,6 +1,7 @@
 // File import
 import { Player } from 'store/player';
 import { ActionReturnType } from 'store/store.types';
+import { MatchStatus } from '.';
 import { menu } from './actionTypes';
 import { GameState, Menu } from './menu.types';
 
@@ -9,6 +10,7 @@ const initialState: GameState = {
 		currentMenu: Menu.MAIN_MENU,
 		currentTurn: Player.PLAYER_1,
 		nextTurn: Player.PLAYER_2,
+		matchStatus: MatchStatus.NOT_STARTED,
 	},
 };
 
@@ -39,6 +41,15 @@ export const menuReducer = (state: GameState = initialState, action: ActionRetur
 				menuState: {
 					...state.menuState,
 					nextTurn: action.payload?.nextTurn,
+				},
+			};
+
+		case menu.CHANGE_MATCH_STATUS:
+			return {
+				...state,
+				menuState: {
+					...state.menuState,
+					matchStatus: action.payload?.status,
 				},
 			};
 

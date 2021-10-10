@@ -6,9 +6,11 @@ import { useDispatch } from 'react-redux';
 
 // File imports
 import { useStyles } from './EnterPlayerName.styles';
-import { Menu } from 'store/menu';
+import { MatchStatus, Menu } from 'store/menu';
 import { useChangeMenu, useFormFields } from 'hooks';
 import { dispatchers } from 'store/player';
+import { dispatchers as menuDispatcher } from 'store/menu';
+import { store } from 'store/actionTypes';
 
 export const EnterPlayerName = (): ReactElement => {
 	const dispatch = useDispatch();
@@ -25,10 +27,12 @@ export const EnterPlayerName = (): ReactElement => {
 			})
 		);
 		changeMenu(Menu.PLAY_MENU);
+		dispatch(menuDispatcher.changeMatchStatus({ status: MatchStatus.ONGOING }));
 	};
 
 	const handleExitToMainMenu = (): void => {
 		changeMenu(Menu.MAIN_MENU);
+		dispatch({ type: store.RESET_APP });
 	};
 
 	return (
@@ -77,7 +81,7 @@ export const EnterPlayerName = (): ReactElement => {
 						variant='contained'
 						color='primary'
 					>
-						Start Match
+						Play
 					</Button>
 				</Grid>
 

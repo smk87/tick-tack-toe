@@ -2,7 +2,7 @@
 
 import { menu } from './actionTypes';
 import { ActionReturnType } from 'store/store.types';
-import { ChangeMenuPayload, ChangeTurnPayload, ChangeNextTurnPayload } from './menu.types';
+import { ChangeMenuPayload, ChangeTurnPayload, ChangeNextTurnPayload, ChangeMatchStatusPayload } from './menu.types';
 
 export const menuActions = {
 	CHANGE: (payload: ChangeMenuPayload): ActionReturnType<ChangeMenuPayload> => ({
@@ -15,6 +15,10 @@ export const menuActions = {
 	}),
 	CHANGE_NEXT_TURN: (payload: ChangeNextTurnPayload): ActionReturnType<ChangeNextTurnPayload> => ({
 		type: menu.CHANGE_NEXT_TURN,
+		payload,
+	}),
+	CHANGE_MATCH_STATUS: (payload: ChangeMatchStatusPayload): ActionReturnType<ChangeMatchStatusPayload> => ({
+		type: menu.CHANGE_MATCH_STATUS,
 		payload,
 	}),
 };

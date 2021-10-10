@@ -11,6 +11,7 @@ import { dispatchers } from 'store/menu';
 import { Board } from '..';
 import { Player } from 'store/player';
 import { RootState } from 'store';
+import { store } from 'store/actionTypes';
 
 export const PlayMenu = (): ReactElement => {
 	const dispatch = useDispatch();
@@ -31,6 +32,7 @@ export const PlayMenu = (): ReactElement => {
 
 	const handleExitToMainMenu = (): void => {
 		changeMenu(Menu.MAIN_MENU);
+		dispatch({ type: store.RESET_APP });
 	};
 
 	const isNextTurn = (): boolean => {

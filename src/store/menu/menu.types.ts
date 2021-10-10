@@ -6,11 +6,18 @@ export enum Menu {
 	PLAY_MENU = 'playMenu',
 }
 
+export enum MatchStatus {
+	NOT_STARTED = 'notStarted',
+	ONGOING = 'ongoing',
+	FINISHED = 'finished',
+}
+
 export type GameState = {
 	menuState: {
 		currentMenu: Menu;
 		currentTurn: Player;
 		nextTurn: Player;
+		matchStatus: MatchStatus;
 	};
 };
 
@@ -25,4 +32,8 @@ export type ChangeTurnPayload = {
 
 export type ChangeNextTurnPayload = {
 	nextTurn: Player;
+};
+
+export type ChangeMatchStatusPayload = {
+	status: MatchStatus;
 };

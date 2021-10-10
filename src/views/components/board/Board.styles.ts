@@ -20,5 +20,8 @@ export const useStyles = makeStyles((theme) =>
 				fontSize: '2rem',
 			},
 		},
+		matchResult: {
+			marginTop: '1rem',
+		},
 	})
 );
