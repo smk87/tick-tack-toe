@@ -23,7 +23,7 @@ const winningIndexes = [
 ];
 
 export const Board = (): ReactElement => {
-	const [hasWon, setHasWon] = useState(true);
+	const [hasWon, setHasWon] = useState(false);
 	const dispatch = useDispatch();
 	const { currentTurn, nextTurn, matchStatus } = useSelector((state: RootState) => state.menu.menuState);
 	const { moves: player1Moves, name: player1Name } = useSelector(
@@ -43,6 +43,12 @@ export const Board = (): ReactElement => {
 		}
 	}, [hasWon, player1Moves, player2Moves]);
 
+	useEffect(() => {
+		if (matchStatus === MatchStatus.ONGOING) {
+			setHasWon(false);
+		}
+	}, [matchStatus]);
+
 	const isNextTurn = (): boolean => {
 		return currentTurn === nextTurn;
 	};
@@ -60,7 +66,7 @@ export const Board = (): ReactElement => {
 				}
 
 				if (moveMatched === 3) {
-					setHasWon(winningPositions.indexOf(move) < 0);
+					setHasWon(true);
 
 					break; // Breaks loop when 3 moves are matched
 				}
@@ -81,11 +87,11 @@ export const Board = (): ReactElement => {
 	};
 
 	const isMatchFinished = (): boolean => {
-		return !hasWon && player1Moves.length + player2Moves.length < 9;
+		return hasWon && player1Moves.length + player2Moves.length > 0;
 	};
 
 	const isMatchTied = (): boolean => {
-		return hasWon && player1Moves.length + player2Moves.length === 9;
+		return !hasWon && player1Moves.length + player2Moves.length === 9;
 	};
 
 	const handleBoardCellClick = (index: number): void => {

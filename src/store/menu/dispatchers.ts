@@ -27,4 +27,9 @@ export const dispatchers = {
 		(dispatch: Dispatch): void => {
 			dispatch(menuActions.CHANGE_MATCH_STATUS(payload));
 		},
+	playAgain:
+		() =>
+		(dispatch: Dispatch): void => {
+			dispatch(menuActions.PLAY_AGAIN());
+		},
 };

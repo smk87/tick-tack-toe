@@ -49,6 +49,17 @@ export const playerReducer = (state: PlayerState = initialState, action: ActionR
 				},
 			};
 		}
+
+		case player.PLAY_AGAIN:
+			return {
+				...state,
+				playerState: {
+					...state.playerState,
+					player1: { ...state.playerState.player1, moves: [] },
+					player2: { ...state.playerState.player2, moves: [] },
+				},
+			};
+
 		// Default state
 		default:
 			return state;

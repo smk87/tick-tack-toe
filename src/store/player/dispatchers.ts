@@ -17,4 +17,9 @@ export const dispatchers = {
 		(dispatch: Dispatch): void => {
 			dispatch(playerActions.UPDATE_MOVE(payload));
 		},
+	playAgain:
+		() =>
+		(dispatch: Dispatch): void => {
+			dispatch(playerActions.PLAY_AGAIN());
+		},
 };

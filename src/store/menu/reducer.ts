@@ -53,6 +53,17 @@ export const menuReducer = (state: GameState = initialState, action: ActionRetur
 				},
 			};
 
+		case menu.PLAY_AGAIN:
+			return {
+				...state,
+				menuState: {
+					...state.menuState,
+					currentTurn: Player.PLAYER_1,
+					nextTurn: Player.PLAYER_2,
+					matchStatus: MatchStatus.ONGOING,
+				},
+			};
+
 		// Default state
 		default:
 			return state;

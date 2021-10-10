@@ -21,4 +21,7 @@ export const menuActions = {
 		type: menu.CHANGE_MATCH_STATUS,
 		payload,
 	}),
+	PLAY_AGAIN: (): ActionReturnType => ({
+		type: menu.PLAY_AGAIN,
+	}),
 };

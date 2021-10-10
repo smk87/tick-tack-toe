@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // File imports
 import { useStyles } from './PlayMenu.styles';
-import { Menu } from 'store/menu';
+import { MatchStatus, Menu } from 'store/menu';
 import { useChangeMenu } from 'hooks';
 import { dispatchers } from 'store/menu';
+import { dispatchers as playerDispatchers } from 'store/player';
 import { Board } from '..';
 import { Player } from 'store/player';
 import { RootState } from 'store';
@@ -28,6 +29,11 @@ export const PlayMenu = (): ReactElement => {
 				nextTurn: menuState.currentTurn,
 			})
 		);
+	};
+
+	const handlePlayAgain = (): void => {
+		dispatch(dispatchers.playAgain());
+		dispatch(playerDispatchers.playAgain());
 	};
 
 	const handleExitToMainMenu = (): void => {
@@ -56,15 +62,21 @@ export const PlayMenu = (): ReactElement => {
 			</Grid>
 			<Grid container className={buttonWrapper} justifyContent='center'>
 				<Grid item>
-					<Button
-						onClick={handlePass}
-						disabled={!isNextTurn()}
-						className={pass}
-						variant='contained'
-						color='primary'
-					>
-						Pass
-					</Button>
+					{menuState?.matchStatus === MatchStatus.FINISHED ? (
+						<Button onClick={handlePlayAgain} className={pass} variant='contained' color='primary'>
+							Play Again
+						</Button>
+					) : (
+						<Button
+							onClick={handlePass}
+							disabled={!isNextTurn()}
+							className={pass}
+							variant='contained'
+							color='primary'
+						>
+							Pass
+						</Button>
+					)}
 				</Grid>
 
 				<Grid item>

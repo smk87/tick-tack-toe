@@ -13,4 +13,7 @@ export const playerActions = {
 		type: player.UPDATE_MOVE,
 		payload,
 	}),
+	PLAY_AGAIN: (): ActionReturnType => ({
+		type: player.PLAY_AGAIN,
+	}),
 };
