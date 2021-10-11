@@ -1,4 +1,3 @@
-// File import
 import { ActionReturnType } from 'store/store.types';
 import { player } from './actionTypes';
 import { PlayerState } from './player.types';

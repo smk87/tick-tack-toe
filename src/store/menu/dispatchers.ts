@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // Library imports
 import { Dispatch } from 'redux';
 

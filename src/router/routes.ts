@@ -5,6 +5,7 @@ import { lazy } from 'react';
 import { Route } from './routes.types';
 import { urls } from './urls';
 
+// Page components import
 const Root = lazy(() => import('views/pages').then(({ Root }) => ({ default: Root })));
 
 /**

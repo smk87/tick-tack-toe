@@ -1,4 +1,3 @@
-// File import
 import { Player } from 'store/player';
 import { ActionReturnType } from 'store/store.types';
 import { MatchStatus } from '.';

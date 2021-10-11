@@ -4,11 +4,10 @@ import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 
 // File imports
-import { EnterPlayerName, MainMenu } from '..';
+import { EnterPlayerName, MainMenu, PlayMenu } from '..';
 import { useStyles } from './Game.styles';
 import { RootState } from 'store';
 import { Menu } from 'store/menu';
-import { PlayMenu } from '../play-menu';
 
 export const Game = (): ReactElement => {
 	const menuState = useSelector((state: RootState) => state.menu?.menuState);

@@ -24,10 +24,7 @@ export const theme = createTheme({
 			main: '#ff6e40',
 		},
 		text: {
-			primary: '#777',
-		},
-		background: {
-			default: '#F0F7FD',
+			primary: '#000',
 		},
 	},
 });

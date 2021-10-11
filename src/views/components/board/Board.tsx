@@ -137,7 +137,7 @@ export const Board = (): ReactElement => {
 					) : isMatchFinished() ? (
 						<Typography color='primary' align='center' variant='h6'>{`${
 							currentTurn === Player.PLAYER_1 ? player1Name : player2Name
-						} has won`}</Typography>
+						} Has Won`}</Typography>
 					) : null}
 				</Grid>
 			</Grid>

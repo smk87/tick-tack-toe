@@ -13,12 +13,6 @@ const persistConfig = {
 	key: 'tick-tack-toe', // Store by this name
 	storage, // Use localStorage
 	stateReconciler: hardSet, // Reconcile level
-	whilelist: [
-		/**
-		 * - Persist only those reducers
-		 * - Reducer names here
-		 */
-	],
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

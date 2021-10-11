@@ -1,4 +1,3 @@
-// Library import
 import { Store } from 'redux';
 import { getStoredState, REHYDRATE } from 'redux-persist';
 
